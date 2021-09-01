@@ -1,9 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { SectionWrapper, Name } from './Section.styled';
 
 const Section = ({title, children}) => (
-    <section>
-        <h2>{ title}</h2>
+    <SectionWrapper>
+      {title && <Name>{ title}</Name>}  
       {children}  
-    </section>
+    </SectionWrapper>
 )
+
+Section.propTypes = {
+  title: PropTypes.string,
+
+};
 export default Section;

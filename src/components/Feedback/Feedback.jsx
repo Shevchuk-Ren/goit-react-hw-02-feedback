@@ -1,12 +1,19 @@
 import React from 'react';
+import { Button } from './Feedback.styled'
+import PropTypes  from 'prop-types';
 
 
 const FeedBack = ({good, neutral, bad }) => (
     <div className="buttons__set">
-        <button type="button" className="button" onClick={good}>Good</button>
-        <button type="button" className="button" onClick={neutral}>Neutral</button>
-        <button type="button" className="button" onClick={bad}>Bad</button>
+        <Button type="button"  onClick={good}>Good</Button>
+        <Button type="button"  onClick={neutral}>Neutral</Button>
+        <Button type="button"  onClick={bad}>Bad</Button>
     </div>
                   
 );
+FeedBack.propTypes = {
+    good: PropTypes.func.isRequired,
+    neutral: PropTypes.func.isRequired,
+    bad:  PropTypes.func.isRequired
+};
 export default FeedBack;

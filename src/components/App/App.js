@@ -1,8 +1,8 @@
 import React from 'react';
-import Section from '../Section/Section';
-import FeedBack from '../Feedback/Feedback';
-import Statistics from '../Statistics/Statistics';
-import './App.css';
+import Section from '../Section';
+import FeedBack from '../Feedback';
+import Statistics from '../Statistics';
+import { Container } from './App.styled';
 
 class App extends React.Component {
   state = {
@@ -44,8 +44,10 @@ class App extends React.Component {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
+
     return (
-      <div className="container">
+      <Container>
         <Section title="Please leave feedback">
           <FeedBack
             good={this.changeGoodFeedBack}
@@ -56,15 +58,15 @@ class App extends React.Component {
 
         <Section title="Statistics">
           <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
+            good={good}
+            neutral={neutral}
+            bad={bad}
             total={this.countTotalFeedback()}
             positivePercentage={this.countPositiveFeedbackPercentage()}
             onLeaveFeedback="No feedback given"
           />
         </Section>
-      </div>
+      </Container>
     );
   }
 }
