@@ -6,9 +6,9 @@ export const Point = styled.p`
   font-weight: bold;
 `;
 export const Decoration = styled.span`
-color: rgba(49, 29, 29, 0.571);
+  color: rgba(49, 29, 29, 0.571);
 `;
 export const Notification = styled.p`
-color: rgba(49, 29, 29, 0.714);
+  color: rgba(49, 29, 29, 0.714);
   font-weight: bold;
 `;

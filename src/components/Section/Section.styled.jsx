@@ -12,5 +12,5 @@ export const SectionWrapper = styled.section`
 `;
 
 export const Name = styled.h2`
-color: rgba(64, 64, 53, 0.823);
+  color: rgba(64, 64, 53, 0.823);
 `;
