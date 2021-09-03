@@ -10,29 +10,13 @@ class App extends React.Component {
     neutral: 0,
     bad: 0,
   };
-  changeGoodFeedBack = () => {
-    this.setState(prevState => {
-      return {
-        good: prevState.good + 1,
-      };
-    });
-  };
-  changeNeutralFeedBack = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
-  changeBadFeedBack = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
-      };
-    });
-    console.log('Click bad');
-  };
 
+  leaveFeedback = option => {
+    this.setState(prevState => {
+      console.log(prevState[option]);
+      return { [option]: prevState[option] + 1 };
+    });
+  };
   countTotalFeedback = () => {
     const total = this.state.bad + this.state.neutral + this.state.good;
     return total;
@@ -50,9 +34,8 @@ class App extends React.Component {
       <Container>
         <Section title="Please leave feedback">
           <FeedBack
-            good={this.changeGoodFeedBack}
-            neutral={this.changeNeutralFeedBack}
-            bad={this.changeBadFeedBack}
+            options={['good', 'neutral', 'bad']}
+            onLeavFeedback={this.leaveFeedback}
           />
         </Section>
 
@@ -63,7 +46,7 @@ class App extends React.Component {
             bad={bad}
             total={this.countTotalFeedback()}
             positivePercentage={this.countPositiveFeedbackPercentage()}
-            onLeaveFeedback="No feedback given"
+            answer="No feedback given"
           />
         </Section>
       </Container>

@@ -6,5 +6,8 @@ export const Button = styled.button`
   width: 80px;
   color: cornsilk;
   background-color: rgba(49, 29, 29, 0.571);
+  :first-letter {
+    text-transform:capitalize;
+}
 `;
 

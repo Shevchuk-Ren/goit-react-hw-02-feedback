@@ -3,17 +3,17 @@ import { Button } from './Feedback.styled'
 import PropTypes  from 'prop-types';
 
 
-const FeedBack = ({good, neutral, bad }) => (
+
+const FeedBack = ({ options, onLeavFeedback }) => (
+    
     <div className="buttons__set">
-        <Button type="button"  onClick={good}>Good</Button>
-        <Button type="button"  onClick={neutral}>Neutral</Button>
-        <Button type="button"  onClick={bad}>Bad</Button>
-    </div>
-                  
+        {options.map(option => (<Button type="button" key={option} onClick={()=> onLeavFeedback(option)}>{option}</Button>))}
+    </div>              
 );
+
 FeedBack.propTypes = {
-    good: PropTypes.func.isRequired,
-    neutral: PropTypes.func.isRequired,
-    bad:  PropTypes.func.isRequired
+    onLeavFeedback: PropTypes.func.isRequired,
+    options: PropTypes.array.isRequired
 };
+
 export default FeedBack;

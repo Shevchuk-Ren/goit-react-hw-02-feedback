@@ -5,10 +5,10 @@ import { Decoration, Point, Notification } from './Statistics.styled';
 
 
 
-const Statistics = ({ good, neutral, bad, total, positivePercentage, onLeaveFeedback}) => (
+const Statistics = ({ good, neutral, bad, total, positivePercentage, answer}) => (
     <div className="statistics__set">
         {good === 0 && neutral === 0 && bad === 0 ?
-            <Notification>{onLeaveFeedback}</Notification>
+            <Notification>{answer}</Notification>
             :
             <div >
                 <Point>Good: <Decoration>{good}</Decoration></Point>
